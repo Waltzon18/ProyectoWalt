@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Waltzon18/ProyectoWalt#readme",
   "dependencies": {
+    "cors": "^2.8.6",
     "express": "^5.2.1"
   }
 }
