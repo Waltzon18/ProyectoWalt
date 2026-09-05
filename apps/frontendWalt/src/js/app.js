@@ -3,7 +3,7 @@ const contenedorCards = document.querySelector('#contenedor-cards');
 
 async function obtenerClasica() {
     try {
-        const respuesta = await fetch('https://jsonplaceholder.typicode.com/users');
+        const respuesta = await fetch('http://localhost:3000/api/compositores');
         const listaDatos = await respuesta.json();
 
         contenedorCards.innerHTML = '';
@@ -13,10 +13,9 @@ async function obtenerClasica() {
             card.classList.add('card');
 
             card.innerHTML = `
-                <h3>Maestro: ${item.name}</h3>
-                <p><strong>Colección:</strong> Repartorio Clásico #${item.id}</p>
-                <p><strong>Contacto / Ficha:</strong> ${item.email}</p>
-                <p><strong>Sede:</strong> Orquesta de ${item.address.city}</p>
+                <h3>Maestro: ${item.nombre || item.name}</h3>
+                <p><strong>Estilo:</strong> ${item.estilo || 'Clásico'}</p>
+                <p><strong>Obras:</strong> ${item.obras ? item.obras.join(', ') : 'N/A'}</p>
             `;
 
             contenedorCards.appendChild(card);
